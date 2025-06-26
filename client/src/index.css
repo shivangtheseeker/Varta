@@ -1,1 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import "tailwindcss";
+
+*{
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+@theme {
+  /* Red */
+  --color-red-100: #ebb0b0;
+  --color-red-200: #e18a8a;
+  --color-red-300: #d35454;
+  --color-red-400: #cb3333;
+  --color-red-500: #be0000;
+  --color-red-600: #ad0000;
+  --color-red-700: #870000;
+  --color-red-800: #690000;
+  --color-red-900: #500000;
+
+  /* Green */
+  --color-green-100: #bce9b0;
+  --color-green-200: #9cdf8a;
+  --color-green-300: #6fd054;
+  --color-green-400: #53c733;
+  --color-green-500: #28b900;
+  --color-green-600: #24a800;
+  --color-green-700: #1c8300;
+  --color-green-800: #166600;
+  --color-green-900: #114e00;
+
+  /* Grey */
+  --color-grey-100: #bcbcc0;
+  --color-grey-200: #9b9ca1;
+  --color-grey-300: #6e6f76;
+  --color-grey-400: #51535c;
+  --color-grey-500: #262833;
+  --color-grey-600: #23242e;
+  --color-grey-700: #1b1c24;
+  --color-grey-800: #15161c;
+  --color-grey-900: #101115;
+  --color-grey-white: #;
+  --color-grey-black: #000;
+
+  /* Blue */
+  --color-blue-100: #b0b3cb;
+  --color-blue-200: #8a8eb2;
+  --color-blue-300: #545a8e;
+  --color-blue-400: #333a79;
+  --color-blue-500: #000957;
+  --color-blue-600: #00084f;
+  --color-blue-700: #00063e;
+  --color-blue-800: #000530;
+  --color-blue-900: #000425;
+
+  /* Sky Blue */
+  --color-sky-blue-50: #e9f2fd;
+  --color-sky-blue-100: #bbd8f9;
+  --color-sky-blue-200: #9ac5f6;
+  --color-sky-blue-300: #6caaf2;
+  --color-sky-blue-400: #4f99ef;
+  --color-sky-blue-500: #2380eb;
+  --color-sky-blue-600: #2074d6;
+  --color-sky-blue-700: #195ba7;
+  --color-sky-blue-800: #134681;
+  --color-sky-blue-900: #0f3663;
+
+  /* Font Family */
+  --font-headings: "Open Sans", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Font Size */
+  --text-body: 16px;
+  --text-small: 12px;
+  --text-x-small: 8px;
+  --text-h8: 12px;
+  --text-h7: 16px;
+  --text-h6: 20px;
+  --text-h5: 24px;
+  --text-h4: 32px;
+  --text-h3: 40px;
+  --text-h2: 48px;
+  --text-h1: 60px;
+
+  /* Line Height */
+  --leading-body: 24px;
+  --leading-small: 18px;
+  --leading-x-small: 12px;
+  --leading-h8: 14px;
+  --leading-h7: 19px;
+  --leading-h6: 24px;
+  --leading-h5: 28px;
+  --leading-h4: 40px;
+  --leading-h3: 48px;
+  --leading-h2: 56px;
+  --leading-h1: 72px;
+}
+
+@layer base {
+  input {
+   @apply appearance-none border-none outline-none bg-transparent p-0 m-0
+  }
+}
+
+@layer utilities {
+  .h1-regular {
+    @apply text-h1 leading-h1 font-headings;
+  }
+  .h1-semibold {
+    @apply text-h1 leading-h1 font-headings font-semibold;
+  }
+  .h1-bold {
+    @apply text-h1 leading-h1 font-headings font-bold;
+  }
+
+  .h2-regular {
+    @apply text-h2 leading-h2 font-headings;
+  }
+  .h2-semibold {
+    @apply text-h2 leading-h2 font-headings font-semibold;
+  }
+  .h2-bold {
+    @apply text-h2 leading-h2 font-headings font-bold;
+  }
+
+  .h3-regular {
+    @apply text-h3 leading-h3 font-headings;
+  }
+  .h3-semibold {
+    @apply text-h3 leading-h3 font-headings font-semibold;
+  }
+  .h3-bold {
+    @apply text-h3 leading-h3 font-headings font-bold;
+  }
+
+  .h4-regular {
+    @apply text-h4 leading-h4 font-headings;
+  }
+  .h4-semibold {
+    @apply text-h4 leading-h4 font-headings font-semibold;
+  }
+  .h4-bold {
+    @apply text-h4 leading-h4 font-headings font-bold;
+  }
+
+  .h5-regular {
+    @apply text-h5 leading-h5 font-headings;
+  }
+  .h5-semibold {
+    @apply text-h5 leading-h5 font-headings font-semibold;
+  }
+  .h5-bold {
+    @apply text-h5 leading-h5 font-headings font-bold;
+  }
+
+  .h6-regular {
+    @apply text-h6 leading-h6 font-headings;
+  }
+  .h6-semibold {
+    @apply text-h6 leading-h6 font-headings font-semibold;
+  }
+  .h6-bold {
+    @apply text-h6 leading-h6 font-headings font-bold;
+  }
+
+  .h7-regular {
+    @apply text-h7 leading-h7 font-headings;
+  }
+  .h7-semibold {
+    @apply text-h7 leading-h7 font-headings font-semibold;
+  }
+  .h7-bold {
+    @apply text-h7 leading-h7 font-headings font-bold;
+  }
+
+  .h8-regular {
+    @apply text-h8 leading-h8 font-headings;
+  }
+  .h8-semibold {
+    @apply text-h8 leading-h8 font-headings font-semibold;
+  }
+  .h8-bold {
+    @apply text-h8 leading-h8 font-headings font-bold;
+  }
+
+
+  .body-regular { @apply text-body leading-body font-body; }
+  .body-semibold { @apply text-body leading-body font-body font-semibold; }
+  .body-bold { @apply text-body leading-body font-body font-bold; }
+
+  .small-regular { @apply text-small leading-small font-body; }
+  .small-semibold { @apply text-small leading-small font-body font-semibold; }
+  .small-bold { @apply text-small leading-small font-body font-bold; }
+
+  .xsmall-regular { @apply text-x-small leading-x-small font-body; }
+  .xsmall-semibold { @apply text-x-small leading-x-small font-body font-semibold; }
+  .xsmall-bold { @apply text-x-small leading-x-small font-body font-bold; }
+}
+
+
+@layer components {
+  .container {
+    @apply w-full h-screen mx-auto px-[24px] py-[16px];
+  }
+
+  .gridLayout {
+    @apply grid grid-cols-1 gap-[20px] w-full h-full max-w-[1536px];
+    @apply md:grid-cols-[5fr_3fr] xl:grid-cols-[1fr_7fr_4fr];
+  }
+
+  .navbar {
+  @apply h-[76px] w-full absolute xl:static bottom-0 bg-sky-blue-500 rounded-[4px]
+         flex flex-row xl:flex-col justify-between items-center 
+         px-[20px] py-[12px] md:h-[84px] md:py-[16px] xl:h-full xl:p-[20px];
+  }
+
+  .glassscreen{
+  @apply bg-sky-blue-500/10 backdrop-blur-md rounded-[4px] p-[16px] md:p-[20px] border border-[2px] border-sky-blue-50/20
+         flex flex-col justify-center items-center
+  }
+
+  .searchbar{
+    @apply w-full /*h-[40px]*/ px-[12px] py-[8px] bg-sky-blue-50 rounded-[4px] sm:px-[16px] py-[12px]
+           flex justify-between items-center 
+  }
+
+}
+
+

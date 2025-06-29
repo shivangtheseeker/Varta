@@ -1,8 +1,10 @@
 import React from 'react'
 
-function ChatMedia() {
+function ChatMedia({
+  information, setInformation
+}) {
   return (
-    <div>
+    <div className={`glassscreen ${information ? 'static' : 'hidden'}` }>
       ChatMedia
     </div>
   )

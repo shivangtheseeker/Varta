@@ -2,7 +2,7 @@ import React from 'react'
 
 const Chatbox = () => {
   return (
-    <div className=' hidden '>
+    <div className=''>
       profile page
     </div>
   )

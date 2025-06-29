@@ -3,13 +3,16 @@
 
 *{
     box-sizing: border-box;
-    overflow: hidden;
+    
+    
 }
 
 html,
 body,
 #root {
   height: 100%;
+  
+  
 }
 
 
@@ -220,20 +223,27 @@ body,
   }
 
   .navbar {
-  @apply h-[76px] w-full absolute xl:static bottom-0 bg-sky-blue-500 rounded-[4px]
+  @apply h-[76px] w-full overflow-hidden absolute xl:static bottom-0 bg-sky-blue-500 rounded-[4px] z-10
          flex flex-row xl:flex-col justify-between items-center 
          px-[20px] py-[12px] md:h-[84px] md:py-[16px] xl:h-full xl:p-[20px];
   }
 
   .glassscreen{
-  @apply bg-sky-blue-500/10 backdrop-blur-md rounded-[4px] p-[16px] md:p-[20px] border border-[2px] border-sky-blue-50/20
-         flex flex-col justify-center items-center
+  @apply h-full overflow-hidden bg-sky-blue-500/10 backdrop-blur-md rounded-[4px] p-[16px] border border-[2px] md:p-[20px] border-sky-blue-50/20
+         flex flex-col justify-start items-center
   }
 
   .searchbar{
     @apply w-full /*h-[40px]*/ px-[12px] py-[8px] bg-sky-blue-50 rounded-[4px] sm:px-[16px] py-[12px]
            flex justify-between items-center 
   }
+
+  .header{
+    @apply w-full px-[12px] py-[8px] md:px-[16px] py-[12px] rounded-[4px] bg-sky-blue-50
+           flex justify-between items-center
+  }
+
+  
 
 }
 

@@ -7,13 +7,16 @@ const Home = () => {
 
   return (
     <div className='container'>
-      <div className={`overflow-hidden grid grid-cols-1 gap-[20px] relative h-[100%] ${selectedUser ? 'gridLayout' : 'xl:grid-cols-[1fr_11fr]'}`}>
+      <div className={`overflow-hidden grid gap-[20px] relative h-full ${
+        selectedUser
+         ? 'grid-cols-1 w-full h-full max-w-[1536px] md:grid-cols-[5fr_3fr] xl:grid-cols-[1fr_7fr_4fr]'
+         : 'xl:grid-cols-[1fr_11fr]'
+        }`}>
         <Navbar/>
-        <ChatContainer/>
-        <section>
-          <Sidebar/>
-          <ChatMedia/>
-        </section>
+        <ChatContainer setInformation={setInformation} selectedUser={selectedUser} setSelectedUser={setSelectedUser}/>
+        <Sidebar information={information} selectedUser={selectedUser} setSelectedUser={setSelectedUser} />
+        <ChatMedia information={information} setInformation={setInformation}/>
+        
       </div>
     </div>
   )

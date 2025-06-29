@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import assets, { messagesDummyData } from '../assets/assets'
 
 function ChatContainer({
-  setInformation , selectedUser, setSelectedUser
+  information, setInformation , selectedUser, setSelectedUser
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
   return (
-    <div className={`glassscreen gap-[28px] ${selectedUser? '':'hidden'}`}>
+    <div className={`glassscreen gap-[28px] ${selectedUser? '':'hidden'} ${information?'max-md:hidden':''}`}>
       <header className='header' >
         <div className='flex justify-center items-start gap-[12px] lg:[16px] '>
           <div onClick={()=>{setSelectedUser(false), setInformation(false) }} className='w-[24px] aspect-square cursor-pointer my-auto'>

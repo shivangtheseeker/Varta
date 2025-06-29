@@ -234,7 +234,7 @@ body,
   }
 
   .searchbar{
-    @apply w-full /*h-[40px]*/ px-[12px] py-[8px] bg-sky-blue-50 rounded-[4px] sm:px-[16px] py-[12px]
+    @apply w-full /*h-[40px]*/ px-[12px] py-[8px] bg-sky-blue-50 rounded-[4px] sm:px-[16px] sm:py-[12px]
            flex justify-between items-center 
   }
 

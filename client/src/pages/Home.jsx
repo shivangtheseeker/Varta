@@ -13,7 +13,7 @@ const Home = () => {
          : 'xl:grid-cols-[1fr_11fr]'
         }`}>
         <Navbar/>
-        <ChatContainer setInformation={setInformation} selectedUser={selectedUser} setSelectedUser={setSelectedUser}/>
+        <ChatContainer information={information} setInformation={setInformation} selectedUser={selectedUser} setSelectedUser={setSelectedUser}/>
         <Sidebar information={information} selectedUser={selectedUser} setSelectedUser={setSelectedUser} />
         <ChatMedia information={information} setInformation={setInformation}/>
         

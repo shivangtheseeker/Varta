@@ -1,13 +1,18 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import assets from '../assets/assets'
+import { AuthContext } from '../../context/AuthContext'
 
 const login = () => {
   const [currentState, setCurrentState] = useState("SignUp")
-  const [name, setName] = useState("")
+  const [fullname, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+
+  const {login} = useContext(AuthContext)
+
   const onSubmitHandler = (event)=> {
     event.preventDefault();
+    login(currentState === "SignUp" ? 'signup' : 'login', {fullname , email, password} )
   }
   return (
     <section className='w-full h-screen  grid grid-cols-1 md:grid-cols-2 gap-[20px]'>
@@ -16,7 +21,7 @@ const login = () => {
             <h1 className='text-h4 font-headings leading-h4 font-bold text-sky-blue-900'>{currentState==="SignUp" ? ("Join The Freedom") : ("Rejoin the Freedom")}</h1>
             <form onSubmit={onSubmitHandler} action="submit" className=' w-full flex flex-col gap-[16px]' >
               <input onChange={(e)=>setEmail(e.target.value)} value={email} type="email" placeholder='Enter your Email' required className=' w-full bg-sky-blue-50 px-[12px] py-[8px] text-body font-body font-regular leading-body text-grey-400 rounded-[4px] ' />
-              {currentState==="SignUp" && (<input onChange={(e)=>setName(e.target.value)} type="text" value={name} placeholder='Enter your Name' required className=' w-full bg-sky-blue-50 px-[12px] py-[8px] text-body font-body font-regular leading-body text-grey-400 rounded-[4px] ' />) }
+              {currentState==="SignUp" && (<input onChange={(e)=>setName(e.target.value)} type="text" value={fullname} placeholder='Enter your Name' required className=' w-full bg-sky-blue-50 px-[12px] py-[8px] text-body font-body font-regular leading-body text-grey-400 rounded-[4px] ' />) }
               <input onChange={(e)=>setPassword(e.target.value)} value={password} type="password" placeholder='Enter your Password' required className=' w-full bg-sky-blue-50 px-[12px] py-[8px] text-body font-body font-regular leading-body text-grey-400 rounded-[4px] ' />
               <button type='submit'className=' w-full bg-sky-blue-600 px-[12px] py-[8px] text-body font-body font-regular leading-body text-white cursor-pointer rounded-[4px] '   > {
                 currentState === "SignUp" ? "Create Account" : "Log In"

@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import assets from '../assets/assets'
 import {useNavigate} from 'react-router-dom'
+import { AuthContext } from '../../context/AuthContext';
 
 function Navbar() {
   const navigate = useNavigate();
+  const {logout} = useContext(AuthContext)
   return (
     <nav className='navbar'>
       <img onClick={()=>(navigate('/profile'))} src={assets.profile_martin} alt="profile pic" className='max-w-[52px] xl:max-w-[68px] aspect-[1/1] object-cover rounded-full cursor-pointer ' />
@@ -18,7 +20,7 @@ function Navbar() {
            <span class="material-symbols-rounded">forum</span>
          </div>
       </div>
-      <div className='w-[44px] xl:w-[52px] aspect-[1/1] bg-sky-blue-500 border-sky-blue-300 border-solid border-[2px] flex items-center justify-center rounded-full cursor-pointer hover:bg-sky-blue-400 active:bg-sky-blue-400 '>
+      <div onClick={()=> logout()} className='w-[44px] xl:w-[52px] aspect-[1/1] bg-sky-blue-500 border-sky-blue-300 border-solid border-[2px] flex items-center justify-center rounded-full cursor-pointer hover:bg-sky-blue-400 active:bg-sky-blue-400 '>
         <span class="material-symbols-rounded">arrow_circle_left</span>
       </div>
     </nav>

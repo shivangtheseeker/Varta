@@ -4,10 +4,10 @@ import bcrypt from "bcryptjs"
 import cloudinary from "../lib/cloudnary.js";
 
 export const signup = async (req, res) => {
-    const {email, fullName, password} = req.body;
+    const {email, fullname, password} = req.body;
 
     try{
-        if(!email || !fullName || !password ){
+        if(!email ||  !fullname || !password ){
             return res.json({success: false, message: "Missing Details"})
         }
         const user = await User.findOne({email});
@@ -19,7 +19,7 @@ export const signup = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, salt)
 
         const newUser = await User.create({
-            email, fullName, password: hashedPassword
+            email, fullname, password: hashedPassword
         })
 
         const token = genrateToken(newUser._id)
@@ -59,19 +59,19 @@ export const checkAuth = (req, res) => {
 
 export const updateProfile = async (req, res)=>{
     try{
-        const { profilePic, bio, fullName} = req.body
+        const { profilePic, bio, fullname} = req.body
         const userId = req.user._id
         let updateProfile;
 
         if(!profilePic){
-           updateProfile = await User.findByIdAndUpdate(userId, {bio, fullName}, {new: true})
+           updateProfile = await User.findByIdAndUpdate(userId, {bio, fullname}, {new: true})
         }
         else {
-            const upload = await cloudinary.uploader.upload(profilePic)
-            updateProfile = await User.findByIdAndUpdate(userId, {profilePic : upload ,bio, fullName}, {new: true})
+            const upload = await cloudinary.uploader.upload(profilePic, {folder : "profiles"})
+            updateProfile = await User.findByIdAndUpdate(userId, {profilePic : upload.secure_url ,bio, fullname}, {new: true})
         }
 
-        res.json({success: true, user: updatedUser})
+        res.json({success: true, user: updateProfile})
     }
     catch (error){
         console.log(error.message)

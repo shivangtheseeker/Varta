@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import assets from '../assets/assets'
+
 import { ChatContext } from '../../context/ChatContext'
 
 function ChatMedia({
@@ -15,7 +15,7 @@ function ChatMedia({
   return (
     <div className={`glassscreen gap-[24px] relative ${information ? 'static' : 'hidden'}` }>
       <div className='flex flex-col justify-center items-center gap-[16px]'>
-        <img src={selectedUser? selectedUser.profilePic || assets.avatar : assets.avatar} alt="profile pic" className='w-[120px] aspect-square rounded-full object-cover' />
+        <img src={selectedUser?.profilePic || "/avatar.jpg"} alt="profile pic" className='w-[120px] aspect-square rounded-full object-cover' />
         <div className='flex flex-col justify-center items-center gap-[8px]'>
           <h1 className='text-h6 leading-h6 font-headings font-bold text-sky-blue-900' >{selectedUser?.fullname}</h1>
           <p className='text-body font-body leading-body font-regular text-center line-clamp-4 text-sky-blue-900' >{selectedUser?.bio}</p>

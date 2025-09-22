@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import asset from '../assets/assets'
 import { ChatContext } from '../../context/ChatContext'
 import { AuthContext } from '../../context/AuthContext'
 
@@ -30,7 +29,7 @@ function Sidebar(
             filteredUsers.map((user, index)=>(
               <div onClick={()=>{setSelectedUser(user), setUnseenMessages(prev=>({...prev, [user._id]:0}))}} key={index} className=' w-full flex justify-between items-center rounded-[4px] px-[12px] py-[8px] sm:px-[16px] hover:bg-sky-blue-100 cursor-pointer ' >
               <div className=' flex gap-[12px]  '>
-                <img src={user.profilePic ? user.profilePic : asset.avatar } alt="profile pic" className='w-[44px] aspect-square object-cover rounded-full' />
+                <img src={user.profilePic ||  "/avatar.jpg"  } alt="profile pic" className='w-[44px] aspect-square object-cover rounded-full' />
                 <div className='flex flex-col justify-center gap-[4px] h-auto'>
                   <h1 className='h7-semibold truncate max-w-[300px] min-w-[160px] overflow-hidden whitespace-nowrap text-sky-blue-900'>{user.fullname}</h1>
                   <span className={`text-small leading-small font-body lg:text-body lg:leading-body ${onlineUsers.includes(user._id) ? 'text-green-800' : "text-grey-500"} `}>{ onlineUsers.includes(user._id) ? 'Online' : 'Offline'}</span>

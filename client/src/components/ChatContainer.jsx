@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import assets from "../assets/assets.js"; 
 import { AuthContext } from '../../context/AuthContext';
 import { ChatContext } from '../../context/ChatContext';
 
@@ -52,7 +51,7 @@ function ChatContainer({
           <div onClick={()=>{setSelectedUser(false), setInformation(false) }} className='w-[24px] aspect-square cursor-pointer my-auto'>
             <span class="material-symbols-rounded">arrow_back</span>
           </div>
-          <img src={selectedUser?.profilePic || assets.avatar} alt="profile pic" className='w-[44px] aspect-square object-cover lg:w-[52px] rounded-full' />
+          <img src={selectedUser?.profilePic || "/avatar.jpg"} alt="profile pic" className='w-[44px] aspect-square object-cover lg:w-[52px] rounded-full' />
           <div className='h-auto flex flex-col gap-[4px] my-auto'>
             <h1 className='font-semibold text-h7 leading-h7 font-headings truncate max-w-[349px] min-w-[200px] overflow-hidden whitespace-nowrap lg:text-h6 lg:leading-h6 text-sky-blue-900'>{selectedUser?.fullname}</h1>
             <span className= {`text-small leading-small font-body lg:text-body lg:leading-body ${onlineUsers.includes(selectedUser?._id) ? 'text-green-800' : "text-grey-500"}`} >{onlineUsers.includes(selectedUser?._id) ? 'Online' : 'Offline'}</span>
@@ -66,7 +65,7 @@ function ChatContainer({
         {
           messages.map((msg, index)=>(
             <div key={index} className='flex items-start gap-[12px]'>
-              <img src={msg.senderId === authUser._id ? authUser?.profilePic || assets.avatar : selectedUser?.profilePic || assets.avatar} alt="profile pic" className='w-[40px] aspect-square rounded-full object-cover' />
+              <img src={msg.senderId === authUser._id ? authUser?.profilePic || "/avatar.jpg" : selectedUser?.profilePic || "/avatar.jpg"} alt="profile pic" className='w-[40px] aspect-square rounded-full object-cover' />
               {
                 msg.image
                     ? <img src={msg.image} alt="img" className='w-[200px] aspect-square rounded-[4px] object-cover' />

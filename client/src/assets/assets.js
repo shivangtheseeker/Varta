@@ -9,10 +9,9 @@ import pic3 from './pic3.png'
 import pic4 from './pic4.png'
 import img1 from './img1.jpg'
 import vartaLogo from './varta-logo.svg'
-import avatar from './avatar.jpg'
 
 const assets = {
-    profile_martin, profile_alison, profile_enrique, profile_marco, profile_richard, vartaLogo, avatar
+    profile_martin, profile_alison, profile_enrique, profile_marco, profile_richard, vartaLogo
 }
 
 export default assets;

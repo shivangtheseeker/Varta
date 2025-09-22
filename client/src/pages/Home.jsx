@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { ChatContainer, ChatMedia, Navbar, Sidebar } from '../components'
+import { ChatContext } from '../../context/ChatContext';
 
 const Home = () => {
-  const [selectedUser, setSelectedUser] = useState(false);
+  const {selectedUser} = useContext(ChatContext)
   const [information, setInformation] = useState(false);
 
   return (
@@ -13,8 +14,8 @@ const Home = () => {
          : 'xl:grid-cols-[1fr_11fr]'
         }`}>
         <Navbar/>
-        <ChatContainer information={information} setInformation={setInformation} selectedUser={selectedUser} setSelectedUser={setSelectedUser}/>
-        <Sidebar information={information} selectedUser={selectedUser} setSelectedUser={setSelectedUser} />
+        <ChatContainer information={information} setInformation={setInformation} />
+        <Sidebar information={information}/>
         <ChatMedia information={information} setInformation={setInformation}/>
         
       </div>

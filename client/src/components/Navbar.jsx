@@ -6,9 +6,10 @@ import { AuthContext } from '../../context/AuthContext';
 function Navbar() {
   const navigate = useNavigate();
   const {logout} = useContext(AuthContext)
+  const {authUser} = useContext(AuthContext)
   return (
     <nav className='navbar'>
-      <img onClick={()=>(navigate('/profile'))} src={assets.profile_martin} alt="profile pic" className='max-w-[52px] xl:max-w-[68px] aspect-[1/1] object-cover rounded-full cursor-pointer ' />
+      <img onClick={()=>(navigate('/profile'))} src={authUser? authUser.profilePic || assets.avatar : assets.avatar} alt="profile pic" className='max-w-[52px] xl:max-w-[68px] aspect-[1/1] object-cover rounded-full cursor-pointer ' />
       <div className='flex flex-row xl:flex-col gap-[16px]'>
          <div className='w-[44px] xl:w-[52px] aspect-[1/1] bg-sky-blue-200 flex items-center justify-center rounded-full cursor-pointer hover:bg-sky-blue-50 active:bg-sky-blue-50 '>
           <span class="material-symbols-rounded">home</span>

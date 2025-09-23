@@ -24,7 +24,7 @@ function Sidebar(
           <span class="material-symbols-rounded">search</span>
         </div>
       </div>
-      <section className='w-full flex flex-col gap-[4px]'>
+      <section className='w-full flex flex-col gap-[4px] overflow-y-auto'>
            {
             filteredUsers.map((user, index)=>(
               <div onClick={()=>{setSelectedUser(user), setUnseenMessages(prev=>({...prev, [user._id]:0}))}} key={index} className=' w-full flex justify-between items-center rounded-[4px] px-[12px] py-[8px] sm:px-[16px] hover:bg-sky-blue-100 cursor-pointer ' >

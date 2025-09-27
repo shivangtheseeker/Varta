@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
 import {useNavigate} from 'react-router-dom'
-import assets from '../assets/assets';
 import { AuthContext } from '../../context/AuthContext';
 
 function Profile() {
@@ -43,7 +42,7 @@ function Profile() {
       <div className='glassscreen h-auto p-[20px] md:p-[24px] w-full md:w-5/6 max-w-2xl'>
         <form onSubmit={handleSubmit} className='w-full flex flex-col gap-[32px] md:gap-[40px] justify-center items-center'>
           <label htmlFor="avatar" className='w-fit flex flex-col gap-[16px] justify-center items-center cursor-pointer h7-semibold text-sky-900'>
-            <img src={selectedImg? typeof selectedImg === "string" ? selectedImg : URL.createObjectURL(selectedImg) : assets.avatar} alt="profilePic" className='w-[100px] lg:w-[140px] aspect-square object-cover rounded-full' />
+            <img src={selectedImg? typeof selectedImg === "string" ? selectedImg : URL.createObjectURL(selectedImg) : '/avatar.jpg'} alt="profilePic" className='w-[100px] lg:w-[140px] aspect-square object-cover rounded-full' />
             <input onChange={(e)=>setSelectedImg(e.target.files[0])} type="file" id="avatar" accept='.jpg, .png, .jpeg' hidden />
             Upload Profile Picture
           </label>
